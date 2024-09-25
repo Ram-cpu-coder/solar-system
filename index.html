@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+    <style>
+        :root {
+            --orbit-size: 100px;
+            --planet-size: 50px;
+            --speed: 2s;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100vw;
+            background: url('./bg.webp');
+            background-position: center center;
+            background-size: contain;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+        }
+
+        .big-circle {
+            height: 30%;
+            width: 30%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* position: relative; */
+        }
+
+        .circle2 {
+            --orbit-size: 100px;
+            --planet-size: 250px;
+            --speed: 2s;
+
+            height: var(--planet-size);
+            width: var(--planet-size);
+            background: #d1d105;
+            box-shadow: inset 15px 20px 20px 15px rgb(21 21 19 / 60%);
+            border-radius: 50%;
+            position: relative;
+            transform: background 2s;
+            transition: transform 2s;
+
+        }
+
+        .mercury {
+
+            --orbit-size: 150px;
+            /* --planet-size: 100px; */
+            --speed: 3s;
+            height: calc(var(--planet-size) * 0.38);
+            width: calc(var(--planet-size) * 0.38);
+            background: url('./mercury.png');
+            background-position: center center;
+            background-size: cover;
+            /* border: 2px solid white; */
+            border-radius: 50%;
+            /* display: flex; */
+
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+
+        }
+
+        .venus {
+            --orbit-size: 190px;
+            /* --planet-size: 100px; */
+            --speed: 5s;
+
+            height: calc(var(--planet-size) * 0.75);
+            width: calc(var(--planet-size) * 0.75);
+            background: url('./venus.jpeg');
+            background-position: center center;
+            /* border: 2px solid red; */
+            background-size: cover;
+            border-radius: 70%;
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+        }
+
+        .earth {
+            --orbit-size: 230px;
+            /* --planet-size: 70px; */
+            --speed: 4s;
+            height: calc(var(--planet-size) * 1);
+            width: calc(var(--planet-size) * 1);
+            background: url('./earth.webp');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            /* border: 2px solid red; */
+            display: flex;
+
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+
+        }
+
+        .mars {
+            --orbit-size: 250px;
+            /* --planet-size: 100px; */
+            --speed: 7s;
+            height: calc(var(--planet-size) * 0.53);
+            width: calc(var(--planet-size) * 0.53);
+            background: url('./mars.webp');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            /* border: 2px solid red; */
+            display: flex;
+
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+
+        }
+
+        .jupiter {
+            --orbit-size: 390px;
+            /* --planet-size: 100px; */
+            --speed: 6.2s;
+            height: calc(var(--planet-size) * 3);
+            width: calc(var(--planet-size) * 3);
+            background: url('./jupiter.png');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            /* border: 2px solid red; */
+            display: flex;
+
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+
+        }
+
+        .saturn {
+            --orbit-size: 495px;
+            /* --planet-size: 100px; */
+            --speed: 5.5s;
+            height: calc(var(--planet-size) * 1.15);
+            width: calc(var(--planet-size) * 1.15);
+            background: url('./saturn.webp');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            /* border: 2px solid red; */
+            display: flex;
+
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+
+        }
+
+        .uranus {
+            --orbit-size: 580px;
+            /* --planet-size: 100px; */
+            --speed: 10s;
+            height: calc(var(--planet-size) * 1.02);
+            width: calc(var(--planet-size) * 1.02);
+            background: url('./uranus.jpg');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            /* border: 2px solid red; */
+            display: flex;
+
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+
+        }
+
+        .neptune {
+            --orbit-size: 620px;
+            /* --planet-size: 100px; */
+            --speed: 15s;
+            height: calc(var(--planet-size) * 1.01);
+            width: calc(var(--planet-size) * 1.01);
+            background: url('./Neptune.webp');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            /* border: 2px solid red; */
+            display: flex;
+
+            position: absolute;
+            animation: Rotation var(--speed) linear infinite;
+
+        }
+
+
+
+
+        @keyframes Rotation {
+            from {
+                transform: rotate(0deg) translateX(var(--orbit-size));
+            }
+
+            to {
+                transform: rotate(360deg) translateX(var(--orbit-size));
+            }
+        }
+
+        .mercury-border {
+            height: 295px;
+            width: 295px;
+            border-radius: 50%;
+            border: 2px solid white;
+            /* position: relative; */
+            display: flex;
+            position: absolute;
+        }
+
+        .venus-border {
+            height: 350px;
+            width: 350px;
+            border-radius: 50%;
+            border: 2px solid red;
+            /* position: relative; */
+            position: absolute;
+        }
+
+        .earth-border {
+            height: 295px;
+            width: 295px;
+            border-radius: 50%;
+            border: 2px solid yellowgreen;
+            /* position: relative; */
+            position: absolute;
+        }
+
+        .mars-border {
+            height: 295px;
+            width: 295px;
+            border-radius: 50%;
+            border: 2px solid orange;
+            /* position: relative; */
+        }
+
+        .jupiter-border {
+            height: 295px;
+            width: 295px;
+            border-radius: 50%;
+            border: 2px solid brown;
+            /* position: relative; */
+        }
+
+        .saturn-border {
+            height: 295px;
+            width: 295px;
+            border-radius: 50%;
+            border: 2px solid white;
+            /* position: relative; */
+        }
+
+        .uranus-border {
+            height: 295px;
+            width: 295px;
+            border-radius: 50%;
+            border: 2px solid white;
+            /* position: relative; */
+        }
+
+        .neptune-border {
+            height: 295px;
+            width: 295px;
+            border-radius: 50%;
+            border: 2px solid white;
+            /* position: relative; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="big-circle">
+            
+            <div class="circle2">
+                <div class="mercury-border">
+                    <div class="venus-border">
+                        <div class="earth-border">
+                            <div class="mars-border">
+                                <div class="jupiter-border">
+                                    <div class="saturn-border">
+                                        <div class="uranus-border">
+                                            <div class="neptune-border"></div>
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+
+            <div class="mercury"></div>
+            <div class="venus"></div>
+            <div class="earth"></div>
+            <div class="mars"></div>
+            <div class="jupiter"></div>
+            <div class="saturn"></div>
+            <div class="uranus"></div>
+            <div class="neptune"></div>
+
+        </div>
+    </div>
+</body>
+
+</html>
